@@ -5,6 +5,8 @@
 	<style>
 		.link {
 		text-align:center;
+		color: white;
+		padding: 5px 15px;
 		}
 		.button {
   background-color:#020d42;
@@ -25,6 +27,7 @@
   background-color: #fae8ac; /* Green */
   color: black;
 }
+
 	</style>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,14 +42,30 @@
 <link rel="stylesheet" href="{% static 'css/library.css' %}">
 
   <body>
+
 <div class="link">
-  <form action="history" method="post">
-    {% csrf_token %}
-<button type="submit" class="button" >History</button>
-    </form>
-	</div>
+	<a class="btn btn-primary" href="history" role="button">History</a>
+	<a class="btn btn-primary" href="#" role="button">Logout</a>
+<!--  <form action="history" method="post">-->
+<!--    {% csrf_token %}-->
+<!--<button type="submit" class="button" >History</button>-->
+<!--    </form>-->
+<!--	</div>-->
+<!--  <div class="search">-->
+
+        </div>
 
     <div class="container">
+		 <form action="#">
+                <input type="text"
+                       placeholder=" Search Books"
+                       name="search">
+                <button>
+                    <i class="fa fa-search"
+                       style="font-size: 16px;">
+                    </i>
+                </button>
+            </form>
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
@@ -56,6 +75,7 @@
 					<div class="col-sm-6">
 						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Book</span></a>
 						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
+
 					</div>
                 </div>
             </div>
