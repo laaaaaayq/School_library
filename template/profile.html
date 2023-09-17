@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>E Library - Profile Page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<!--
+
+TemplateMo 546 Sixteen Clothing
+
+https://templatemo.com/tm-546-sixteen-clothing
+
+-->
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/templatemo-sixteen.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  </head>
+
+  <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand"><h2>E <em>library</em></h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="product">Books</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about">About Us</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="contact">Contact Us</a>
+              </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="password">Change Password</a>
+              </li>
+
+                <li class="nav-item ">
+                <a class="nav-link" href="login">Logout</a>
+              </li>
+               <li class="nav-item active">
+                <a class="nav-link" href="#"><i class="fa-solid fa-user"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-heading pro-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+              <h4>E library</h4>
+              <h2>Edit Profile</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!--    <div class="find-us">-->
+<!--      <div class="container">-->
+<!--        <div class="row">-->
+<!--          <div class="col-md-12">-->
+<!--            <div class="section-heading">-->
+<!--              <h2>Our Location on Maps</h2>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-8">-->
+<!-- How to change your own map point
+	1. Go to Google Maps
+	2. Click on your location point
+	3. Click "Share" and choose "Embed map" tab
+	4. Copy only URL and paste it within the src="" field below
+-->
+<!--            <div id="map">-->
+<!--              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.029227925952!2d75.78816647482364!3d11.259260150102717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba659b401c5ac4b%3A0xa44be8349fd6f5ec!2sSoftroniics!5e0!3m2!1sen!2sin!4v1694197249146!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <div class="left-content"><br><br><br><br><br><br>-->
+<!--              <h4>Follow us on</h4>-->
+<!--              <ul class="social-icons">-->
+<!--                <li><a href="#"><i class="fa-brands fa-facebook" style="color: #155ad1;"></i></a></li>-->
+<!--                <li><a href="#"><i class="fa-brands fa-x-twitter" style="color: #3d7be6;"></i></a></li>-->
+<!--                <li><a href="#"><i class="fa-brands fa-linkedin" style="color: #0d63f8;"></i></a></li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+<!--    <div class="send-message">-->
+<!--      <div class="container">-->
+<!--        <div class="row">-->
+<!--          <div class="col-md-12">-->
+<!--            <div class="section-heading">-->
+<!--              <h2>Send us a Message</h2>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-8">-->
+<!--            <div class="contact-form">-->
+<!--              <form id="contact" action="" method="post">-->
+<!--                <div class="row">-->
+<!--                  <div class="col-lg-12 col-md-12 col-sm-12">-->
+<!--                    <fieldset>-->
+<!--                      <input name="name" type="text" class="form-control" id="name" placeholder="Full Name" required="">-->
+<!--                    </fieldset>-->
+<!--                  </div>-->
+<!--                  <div class="col-lg-12 col-md-12 col-sm-12">-->
+<!--                    <fieldset>-->
+<!--                      <input name="email" type="text" class="form-control" id="email" placeholder="E-Mail Address" required="">-->
+<!--                    </fieldset>-->
+<!--                  </div>-->
+<!--                  <div class="col-lg-12 col-md-12 col-sm-12">-->
+<!--                    <fieldset>-->
+<!--                      <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject" required="">-->
+<!--                    </fieldset>-->
+<!--                  </div>-->
+<!--                  <div class="col-lg-12">-->
+<!--                    <fieldset>-->
+<!--                      <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your Message" required=""></textarea>-->
+<!--                    </fieldset>-->
+<!--                  </div>-->
+<!--                  <div class="col-lg-12">-->
+<!--                    <fieldset>-->
+<!--                      <button type="submit" id="form-submit" class="filled-button">Send Message</button>-->
+<!--                    </fieldset>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </form>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <ul class="accordion">-->
+<!--              <li>-->
+<!--                  <a>Accordion Title One</a>-->
+<!--                  <div class="content">-->
+<!--                      <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti elite.</p>-->
+<!--                  </div>-->
+<!--              </li>-->
+<!--              <li>-->
+<!--                  <a>Second Title Here</a>-->
+<!--                  <div class="content">-->
+<!--                      <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti elite.</p>-->
+<!--                  </div>-->
+<!--              </li>-->
+<!--              <li>-->
+<!--                  <a>Accordion Title Three</a>-->
+<!--                  <div class="content">-->
+<!--                      <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti elite.</p>-->
+<!--                  </div>-->
+<!--              </li>-->
+<!--              <li>-->
+<!--                  <a>Fourth Accordion Title</a>-->
+<!--                  <div class="content">-->
+<!--                      <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti elite.</p>-->
+<!--                  </div>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="happy-clients">-->
+<!--      <div class="container">-->
+<!--        <div class="row">-->
+<!--          <div class="col-md-12">-->
+<!--            <div class="section-heading">-->
+<!--              <h2>Our Happy Customers</h2>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-12">-->
+<!--            <div class="owl-clients owl-carousel">-->
+<!--              <div class="client-item">-->
+<!--                <img src="{% static 'images/client-01.png' %}" alt="1">-->
+<!--              </div>-->
+
+<!--              <div class="client-item">-->
+<!--                <img src="{% static 'images/client-01.png' %}" alt="2">-->
+<!--              </div>-->
+
+<!--              <div class="client-item">-->
+<!--                <img src="{% static 'images/client-01.png' %}" alt="3">-->
+<!--              </div>-->
+
+<!--              <div class="client-item">-->
+<!--                <img src="{% static 'images/client-01.png' %}" alt="4">-->
+<!--              </div>-->
+
+<!--              <div class="client-item">-->
+<!--                <img src="{% static 'images/client-01.png' %}" alt="5">-->
+<!--              </div>-->
+
+<!--              <div class="client-item">-->
+<!--                <img src="{% static 'images/client-01.png' %}" alt="6">-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+<!--    <footer>-->
+<!--      <div class="container">-->
+<!--        <div class="row">-->
+<!--          <div class="col-md-12">-->
+<!--            <div class="inner-content">-->
+<!--              <p>Thankyou for choosing us</p>-->
+
+<!--            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </footer>-->
+  &nbsp;<form action="profile" method="post">
+      {% csrf_token %}
+ <center> <input type="text" name="username" placeholder="current username"><br><br>
+<input type="text" name="newname" placeholder="New name"><br><br>
+   <input type="email" name="newemail" placeholder="New email"><br><br>
+   <input type="number" name="newphone" placeholder="New phone number"><br><br>
+<!--   <input type="text" name="newuser" placeholder="New username"><br><br>-->
+ <input type="submit" value="confirm"><br></center>
+
+
+<!--            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">change</button>-->
+
+  </form>
+
+
+<!--     &lt;!&ndash; Modal &ndash;&gt;-->
+<!--  <div class="modal fade" id="myModal" role="dialog">-->
+<!--    <div class="modal-dialog">-->
+
+<!--      &lt;!&ndash; Modal content&ndash;&gt;-->
+<!--      <div class="modal-content">-->
+<!--        <div class="modal-header">-->
+<!--          <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+<!--&lt;!&ndash;          <h4 class="modal-title">Modal Header</h4>&ndash;&gt;-->
+<!--        </div>-->
+<!--        <div class="modal-body">-->
+<!--          <p>Password change successfully!</p>-->
+<!--        </div>-->
+<!--        <div class="modal-footer">-->
+<!--          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+<!--        </div>-->
+<!--      </div>-->
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/owl.js' %}"></script>
+    <script src="{% static 'js/slick.js' %}"></script>
+    <script src="{% static 'js/isotope.js' %}"></script>
+    <script src="{% static 'js/accordions.js' %}"></script>
+
+
+    <script language = "text/Javascript">
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+<h6 align="center">{{ msg }}</h6>
+  </body>
+
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+      <style>
+          .search{
+          margin: 50px auto;
+          }
+          .search input[type=text]{
+        width:300px;
+        height:25px;
+        border-radius:25px;
+        border: none;
+
+          }
+          .search button{
+        background-color: #0074D9;
+        color: #f2f2f2;
+        float: right;
+        padding: 5px 10px;
+        margin-right: 16px;
+        font-size: 12px;
+        border: none;
+        cursor: pointer;
+        border-radius:12px;
+    }
+      </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>Books</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<!--
+
+TemplateMo 546 Sixteen Clothing
+
+https://templatemo.com/tm-546-sixteen-clothing
+
+-->
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/templatemo-sixteen.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.css' %}">
+<!--    <link rel="stylesheet" href="{% static 'css/search.css' %}">-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+
+  <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand"><h2>E <em>Library</em></h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li> 
+              <li class="nav-item active">
+                <a class="nav-link" href="product">Books</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact">Contact Us</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="changepassword">Change Password</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login">Logout</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="profile"><i class="fa-solid fa-user"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
+    <!-- Page Content -->
+    <div class="page-heading products-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+              <h4>most popular</h4>
+              <h2>books for you</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="products">
+      <div class="container">
+        <div class="row">
+            <div class="search">
+<!--            <form action="#">-->
+<!--                <input type="text"-->
+<!--                       placeholder=" Search Books"-->
+<!--                       name="search">-->
+<!--                <button>-->
+<!--                    <i class="fa fa-search"-->
+<!--                       style="font-size: 18px;">-->
+<!--                    </i>-->
+<!--                </button>-->
+<!--            </form>-->
+        </div>
+            <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+
+<!--          <div class="col-md-12">-->
+<!--            <div class="filters">-->
+<!--              <ul>-->
+<!--                  <li class="active" data-filter="*">All Books</li>-->
+<!--                  <li data-filter=".hor">Horror</li>-->
+<!--                  <li data-filter=".fic">Fiction</li>-->
+<!--                  <li data-filter=".rom">Romance</li>-->
+<!--                  <li data-filter=".ani">Animation</li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </div>-->
+          <div class="col-md-12">
+            <div class="filters-content">
+                <div class="row grid">
+                    <div class="col-lg-4 col-md-4 all hor">
+                      <div class="product-item">
+                        <a href="product1"><img src="{% static 'images/product_01.jpg' %}" alt=""></a>
+                        <div class="down-content">
+                          <a href="product1"><h4>Salem’s Lot by Stephen King</h4></a>
+<!--                          <h6>$18.25</h6>-->
+<!--                <p>If you’re looking for a book you won’t be able to put down, reach for Salem’s Lot, one of the earliest books written by Stephen King. This story of a small town overrun by vampires is deliciously chilling. As residents experience a growing list of strange encounters and start putting the pieces together, you’ll feel yourself tensing up in anticipation of the final reveal and confrontation.</p>-->
+<!--                          <ul class="stars">-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+
+<!--                          </ul>-->
+<!--                          <span>Reviews (12)</span>-->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 all hor">
+                      <div class="product-item">
+                        <a href="product2"><img src="{% static 'images/product_02.jpg' %}" alt=""></a>
+                        <div class="down-content">
+                          <a href="product2"><h4>Carrion Comfort by Dan Simmons </h4></a>
+<!--                          <h6>$16.75</h6>-->
+<!--                <p>Carrion Comfort is “one of the three greatest horror novels of the 20th century,” according to the master of horror himself, Stephen King. The villains here represent an intriguing twist on a familiar antagonist: They’re “mind vampires” who, instead of feasting on humans, can inhabit victims’ minds and manipulate them into doing the unspeakable.</p>-->
+<!--                          <ul class="stars">-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                          </ul>-->
+<!--                          <span>Reviews (24)</span>-->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 all hor">
+                      <div class="product-item">
+                        <a href="product3"><img src="{% static 'images/product_03.jpg' %}" alt=""></a>
+                        <div class="down-content">
+                          <a href="product3"><h4>The Hunger by Alma Katsu</h4></a>
+<!--                          <h6>$32.50</h6>-->
+<!--                <p>In this reimagining of a real-life, 19th-century mystery, arguments and the strange death of a little boy have driven the Donner Party to madness. They can’t seem to escape tragedy and the feeling that someone (or something) is watching them. As the group of survivors struggles through blood-boiling hot days and stark, snowy nights, their terror grows … and their numbers shrink. What ravenous evil lurks in these mountains.</p>-->
+<!--                          <ul class="stars">-->
+<!--                           <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                          </ul>-->
+<!--                          <span>Reviews (36)</span>-->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 all fic">
+                      <div class="product-item">
+                        <a href="product4"><img src="{% static 'images/product_04.jpg' %}" alt=""></a>
+                        <div class="down-content">
+                          <a href="product4"><h4>Homecoming by Kate Morton</h4></a>
+<!--                          <h6>$24.60</h6>-->
+<!--                <p>Remember The Clockmaker’s Daughter? The Lake House? How about The Secret Keeper? Yes, those. To date, all Kate Morton’s fiction books have been bestsellers. Like The Lake House, Homecoming builds a plot and characters centered around a crime. On Dec. 24, 1959, a brutal crime occurred at the Turners’ house. The mystery was never solved. Almost 60 years later, when journalist Jess Turner-Bridges returns to the house to visit her fragile grandmother, she starts making connections she’d never made before.</p>-->
+<!--                          <ul class="stars">-->
+<!--                           <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                          </ul>-->
+<!--                          <span>Reviews (48)</span>-->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 all fic">
+                      <div class="product-item">
+                        <a href="product5"><img src="{% static 'images/product_05.jpg' %}" alt=""></a>
+                        <div class="down-content">
+                          <a href="product5"><h4>City Under One Roof by Iris Yamashita</h4></a>
+<!--                          <h6>$18.75</h6>-->
+<!--                <p>This might be Iris Yamashita’s debut novel, but the author is no stranger to tightly woven plots and compelling characters: Yamashita is the Oscar-nominated screenwriter of Clint Eastwood’s Letters from Iwo Jima. In City Under One Roof, she presents a crime story—the first of what will be a two-book mystery series—set in a small, claustrophobic Alaska town. Detective Cara Kennedy has been sent to investigate the origins of severed limbs found washed up on an icy shore.</p>-->
+<!--                          <ul class="stars">-->
+<!--                           <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                          </ul>-->
+<!--                          <span>Reviews (60)</span>-->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 all fic">
+                      <div class="product-item">
+                        <a href="product6"><img src="{% static 'images/product_06.jpg' %}" alt=""></a>
+                        <div class="down-content">
+                          <a href="product6"><h4>The God of Endings by Jacqueline Holland</h4></a>
+<!--                          <h6>$12.50</h6>-->
+<!--                <p>This atmospheric debut novel from Jacqueline Holland is poised to make a mark on the dark fantasy genre. Collette LeSange is reluctantly immortal. Hundreds of years ago, her life was saved by a grandfather figure who granted her everlasting life—but with a catch. Collette is now a vampire, and keeping the world safe from her growing hunger has made her sad and lonely. Advance readers have compared The God of Endings to the New York Times bestseller The Invisible Life of Addie LaRue by V.E. Schwab.</p>-->
+<!--                          <ul class="stars">-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                          </ul>-->
+<!--                          <span>Reviews (72)</span>-->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 all rom">
+                      <div class="product-item">
+                        <a href="product7"><img src="{% static 'images/product_07.jpg' %}" alt=""></a>
+                        <div class="down-content">
+                          <a href="product7"><h4>The Secret History of the Pink Carnation by Lauren Willig </h4></a>
+<!--                          <h6>$12.50</h6>-->
+<!--                <p>Lauren Willig’s sweeping and detailed romance novel takes place during the Napoleonic Wars but is interspersed with present-day interludes. In the latter, a graduate student, Eloise, makes sense of documents and letters related to the Pink Carnation, a spy who helps the Purple Gentian and continuously foils Napoleon and saves nobles. Eloise also reads the diary of Amy, which is filled with details of intimate romance.</p>-->
+<!--                          <ul class="stars">-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                          </ul>-->
+<!--                          <span>Reviews (72)</span>-->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 all rom">
+                      <div class="product-item">
+                        <a href="product8"><img src="{% static 'images/product_08.jpg' %}" alt=""></a>
+                        <div class="down-content">
+                          <a href="product8"><h4>Red, White & Royal Blue by Casey McQuiston</h4></a>
+<!--                          <h6>$12.50</h6>-->
+<!--                        <p>Casey McQuiston’s instant bestseller wows readers with its story about the president’s son, who’s caught in a scandal with his nemesis, the Prince of Wales. In a twist on the “fake dating” trope, the two fake a friendship. But this is a romance novel, so soon the two fall for each other. They’re not sure if they’re ready to take their relationship to the world stage, but they may be making history whether they like it or not.</p>-->
+
+<!--                          <ul class="stars">-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                          </ul>-->
+<!--                          <span>Reviews (72)</span>-->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 all rom">
+                      <div class="product-item">
+                        <a href="product9"><img src="{% static 'images/product_09.jpg' %}" alt=""></a>
+                        <div class="down-content">
+                          <a href="product9"><h4>Love on the Brain by Ali Hazelwood</h4></a>
+<!--                          <h6>$12.50</h6>-->
+<!--                <p>Bee Königswasser is a purple-haired scientist and self-proclaimed STEMinist who’s just been offered her dream job at NASA. There’s just one problem: Her co-lead on the project is her grad school archnemesis, the unfairly attractive Levi Ward. What would Marie Curie do in this situation? What will Bee do? This hilarious yet brainy story will charm and entice anyone who loves romance novels, especially fans of the classic enemies-to-lovers plot line.</p>-->
+<!--                          <ul class="stars">-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                          </ul>-->
+<!--                          <span>Reviews (72)</span>-->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 all ani">
+                      <div class="product-item">
+                        <a href="product10"><img src="{% static 'images/product_10.png' %}" alt=""></a>
+                        <div class="down-content">
+                          <a href="product10"><h4>The Illusion of Life by Frank Thomas and Ollie Johnston</h4></a>
+<!--                          <h6>$12.50</h6>-->
+<!--                <p>The book explains the steps it took the original Disney animators to discover and research the best methods of animation. It also covers the history of animation as well as other things everyone should learn about animation.The authors of the book, Frank Thomas and Ollie Johnston, are animation legends. They were two of the nine animators who defined the Disney animation style. You might recognize some of the work in films such as Snow White, The Jungle Book, and Pinocchio.</p>-->
+<!--                          <ul class="stars">-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                          </ul>-->
+<!--                          <span>Reviews (72)</span>-->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 all ani">
+                      <div class="product-item">
+                        <a href="product11"><img src="{% static 'images/product_11.png' %}" alt=""></a>
+                        <div class="down-content">
+                          <a  href="product11"><h4>Cartoon Animation by Preston Blair</h4></a>
+<!--                          <h6>$12.50</h6>-->
+<!--                <p>The book teaches animators how to create unique cartoon characters with dialogue and movements. It also touches on character development, dialogue, making lines of action, and timing.The writer of the book, Preston Blair, was a well-known animator who worked in big animation studios such as Disney and Hanna Barbera. He worked on famous scenes in Fantasia and the Sorcerer’s Apprentice.</p>-->
+<!--                          <ul class="stars">-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+<!--                          </ul>-->
+<!--                          <span>Reviews (72)</span>-->
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+<!--          <div class="col-md-12">-->
+<!--            <ul class="pages">-->
+<!--              <li><a href="#">1</a></li>-->
+<!--              <li class="active"><a href="#">2</a></li>-->
+<!--              <li><a href="#">3</a></li>-->
+<!--              <li><a href="#">4</a></li>-->
+<!--              <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>-->
+<!--            </ul>-->
+<!--          </div>-->
+        </div>
+      </div>
+    </div>
+
+    
+<!--    <footer>-->
+<!--      <div class="container">-->
+<!--        <div class="row">-->
+<!--          <div class="col-md-12">-->
+<!--            <div class="inner-content">-->
+<!--              <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.-->
+<!--            -->
+<!--            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </footer>-->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/owl.js' %}"></script>
+    <script src="{% static 'js/slick.js' %}"></script>
+    <script src="{% static 'js/isotope.js' %}"></script>
+    <script src="{% static 'js/accordions.js' %}"></script>
+
+
+    <script language = "text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>>
+
+
+  </body>
+
+</html>
