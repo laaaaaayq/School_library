@@ -31,20 +31,18 @@ urlpatterns = [
     path('contact',views.contact),
     path('changepassword',views.changepassword),
     path('password',views.password),
-    path('product1',views.product1),
-    path('product2',views.product2),
-    path('product3',views.product3),
-    path('product4',views.product4),
-    path('product5',views.product5),
-    path('product6',views.product6),
-    path('product7',views.product7),
-    path('product8',views.product8),
-    path('product9',views.product9),
-    path('product10',views.product10),
-    path('product11',views.product11),
-    path('library',views.library),
+    path('product1/<int:id>',views.product1),
+    path('library',views.library, name='library'),
     path('profile',views.profile),
-    path('history',views.history)
+    path('history',views.history),
+    path('user',views.user_history),
+    path('addbook',views.addbook),
+    path('success',views.success),
+    path('logout',views.logout),
+    path('deletebook/<int:id>',views.deletebook,name='deletebook'),
+    path('editbook/<int:id>',views.editbook, name='editbook'),
+    # path('editbookview',views.editbookview)
+    # path('search',views.lib_search)
 ]
 
 

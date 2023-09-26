@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from.models import Register,Login
+from.models import Register,Login,Book
 
 # Create your views here.
 def display(request):
@@ -37,18 +37,50 @@ def login(request):
 
 
 def product(request):
-    return render(request,'products.html')
+    if 'id' in request.session:
+        username=request.session['id']
+        if request.method =='GET':
+            data=Register.objects.filter(username=username).all()
+            data1 = Book.objects.all()
+            context = {
+                'user':data,
+                'books':data1
+            }
+            return render(request,'products.html',context)
+
+
 
 def index(request):
-    return render(request,'index.html')
+    if 'id' in request.session:
+        username=request.session['id']
+        if request.method =='GET':
+            data=Register.objects.filter(username=username).all()
+            return render(request,'index.html',{'data':data})
+    # data1 = Book.objects.all()
+    # return render(request, 'index.html', {'data2': data1})
 
 def about(request):
-    return render(request,'about.html')
+    if 'id' in request.session:
+        username=request.session['id']
+        if request.method =='GET':
+            data=Register.objects.filter(username=username).all()
+            return render(request,'about.html',{'data':data})
+    # return render(request,'about.html')
 
 def contact(request):
-    return render(request,'contact.html')
+    if 'id' in request.session:
+        username=request.session['id']
+        if request.method =='GET':
+            data=Register.objects.filter(username=username).all()
+            return render(request,'contact.html',{'data':data})
+    # return render(request,'contact.html')
 
 def password(request):
+    if 'id' in request.session:
+        username=request.session['id']
+        if request.method =='GET':
+            data=Register.objects.filter(username=username).all()
+            return render(request,'change_password.html',{'data':data})
     if request.method == "POST":
         username = request.POST['username']
         password=request.POST['password']
@@ -70,45 +102,28 @@ def password(request):
         return redirect(changepassword)
 
 def changepassword(request):
-    return render(request,'change_password.html')
+    if 'id' in request.session:
+        username = request.session['id']
+        if request.method == 'GET':
+            data = Register.objects.filter(username=username).all()
+            return render(request, 'change_password.html', {'data': data})
+    # return render(request,'change_password.html')
 
-def product1(request):
-    return render(request,'product1.html')
+def product1(request,id):
+    data=Book.objects.get(id=id)
+    return render(request,'product1.html',{'data':data})
 
-def product2(request):
-    return render(request,'product2.html')
-
-def product3(request):
-    return render(request,'product3.html')
-
-def product4(request):
-    return render(request,'product4.html')
-
-def product5(request):
-    return render(request,'product5.html')
-
-def product6(request):
-    return render(request,'product6.html')
-
-def product7(request):
-    return render(request,'product7.html')
-
-def product8(request):
-    return render(request,'product8.html')
-
-def product9(request):
-    return render(request,'product9.html')
-
-def product10(request):
-    return render(request,'product10.html')
-
-def product11(request):
-    return render(request,'product11.html')
 
 def library(request):
-    return render(request,'librarian_interface.html')
+    data=Book.objects.all()
+    return render(request,'librarian_interface.html',{'data':data})
 
 def profile(request):
+    if 'id' in request.session:
+        username=request.session['id']
+        if request.method =='GET':
+            data=Register.objects.filter(username=username).all()
+            return render(request,'profile.html',{'data':data})
     if request.method == "POST":
         username = request.POST['username']
         newname=request.POST['newname']
@@ -143,3 +158,72 @@ def profile(request):
 
 def history(request):
     return render(request,'history.html')
+def user_history(request):
+    if 'id' in request.session:
+        username=request.session['id']
+        if request.method =='GET':
+            data=Register.objects.filter(username=username).all()
+            return render(request,'user_history.html',{'data':data})
+    # return render(request,'user_history.html')
+
+
+def addbook(request):
+    if request.method == "POST":
+        bookname=request.POST['book']
+        author=request.POST['author']
+        description=request.POST['description']
+        genre=request.POST['genre']
+        image=request.FILES['image']
+        data=Book.objects.create(bookname=bookname,author=author,description=description,genre=genre,image=image)
+        data.save()
+        return render(request,'addbooksuccess.html')
+
+def success(request):
+    return render(request,'addbooksuccess.html')
+
+def logout(request):
+    if 'id' in request.session:
+        request.session.flush()
+        return redirect(login)
+
+def deletebook(request,id):
+    data=Book.objects.get(id=id)
+    data.delete()
+    return redirect(library)
+
+# def editbookview(request):
+#     return render(request,'editbook.html')
+
+def editbook(request,id):
+    data=Book.objects.get(id=id)
+    if request.method=="POST":
+        # book=request.POST['book']
+        newbook=request.POST['newbook']
+        author=request.POST['newauthor']
+        description=request.POST['newdescription']
+        genre=request.POST['newgenre']
+        # image=request.FILES['newimage']
+        try:
+            data=Book.objects.get(id=id)
+            if data.id==id:
+                data.bookname=newbook
+                data.author=author
+                data.description=description
+                data.genre=genre
+                # data.image=image
+                data.save()
+                return redirect(library)
+            else:
+                return HttpResponse("Book not found")
+        except Exception:
+            return HttpResponse("Check the book name")
+    else:
+        return render(request,'editbook.html',{'data':data})
+
+
+
+# def lib_search(request):
+#     if request.method=="POST":
+#         book=request.POST['search']
+#         data=Book.objects.filter(bookname=book).all()
+#         return render(request,'librarian_interface.html',{'book':data})

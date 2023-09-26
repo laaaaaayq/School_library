@@ -60,6 +60,9 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <a class="nav-link" href="product">Books</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="user">History</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="about">About Us</a>
               </li>
               <li class="nav-item">
@@ -70,12 +73,14 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <a class="nav-link" href="changepassword">Change Password</a>
               </li>
 
-
               <li class="nav-item">
                 <a class="nav-link" href="login">Logout</a>
               </li>
+
               <li class="nav-item">
-                <a class="nav-link" href="profile"><i class="fa-solid fa-user"></i></a>
+                {% for i in data %}
+                <a class="nav-link" href="profile"><i class="fa-solid fa-user"></i> {{i.username}}</a>
+                {% endfor %}
               </li>
             </ul>
           </div>
@@ -123,6 +128,7 @@ https://templatemo.com/tm-546-sixteen-clothing
               <a href="product1"><img src="{% static 'images/product_01.jpg' %}" alt=""></a>
               <div class="down-content">
                 <a href="product1"><h4>Salem’s Lot by Stephen King</h4></a>
+                <h4>Genre: Horror</h4>
 <!--                <p>If you’re looking for a book you won’t be able to put down, reach for Salem’s Lot, one of the earliest books written by Stephen King. This story of a small town overrun by vampires is deliciously chilling. As residents experience a growing list of strange encounters and start putting the pieces together, you’ll feel yourself tensing up in anticipation of the final reveal and confrontation. Sometimes slow burns make the best horror books!</p>-->
 <!--                <ul class="stars">-->
 <!--                <li><i class="fa-regular fa-star"></i></li>-->
@@ -176,6 +182,7 @@ https://templatemo.com/tm-546-sixteen-clothing
               <a href="product4"><img src="{% static 'images/product_04.jpg' %}" alt=""></a>
               <div class="down-content">
                 <a href="product4"><h4>Homecoming by Kate Morton</h4></a>
+                <h4>Genre: Fiction</h4>
 <!--                <h6>$15.25</h6>-->
 <!--                <p>Remember The Clockmaker’s Daughter? The Lake House? How about The Secret Keeper? Yes, those. To date, all Kate Morton’s fiction books have been bestsellers. Like The Lake House, Homecoming builds a plot and characters centered around a crime. On Dec. 24, 1959, a brutal crime occurred at the Turners’ house. The mystery was never solved.</p>-->
 <!--                <ul class="stars">-->
@@ -230,6 +237,7 @@ https://templatemo.com/tm-546-sixteen-clothing
               <a href="product7"><img src="{% static 'images/product_07.jpg' %}" alt=""></a>
               <div class="down-content">
                 <a href="product7"><h4>Red, White & Royal Blue by Casey McQuiston </h4></a>
+                <h4>Genre: Romance</h4>
 <!--                <p>Casey McQuiston’s instant bestseller wows readers with its story about the president’s son, who’s caught in a scandal with his nemesis, the Prince of Wales. In a twist on the “fake dating” trope, the two fake a friendship. But this is a romance novel, so soon the two fall for each other. They’re not sure if they’re ready to take their relationship to the world stage, but they may be making history whether they like it or not.</p>-->
 <!--                <ul class="stars">-->
 <!--                <li><i class="fa-regular fa-star"></i></li>-->
@@ -281,6 +289,7 @@ https://templatemo.com/tm-546-sixteen-clothing
               <a href="product10"><img src="{% static 'images/product_10.png' %}" alt=""></a>
               <div class="down-content">
                 <a href="product10"><h4>The Illusion of Life by Frank Thomas and Ollie Johnston</h4></a>
+                <h4>Genre: Animation</h4>
 <!--                <p>The book explains the steps it took the original Disney animators to discover and research the best methods of animation. It also covers the history of animation as well as other things everyone should learn about animation.The authors of the book, Frank Thomas and Ollie Johnston, are animation legends. They were two of the nine animators who defined the Disney animation style. You might recognize some of the work in films such as Snow White, The Jungle Book, and Pinocchio.</p>-->
 <!--                <ul class="stars">-->
 <!--                <li><i class="fa-regular fa-star"></i></li>-->

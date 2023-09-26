@@ -17,3 +17,13 @@ class Login(models.Model):
 
     def __str__(self):
         return self.username
+
+class Book(models.Model):
+     bookname=models.CharField(max_length=100)
+     author=models.CharField(max_length=100)
+     description=models.CharField(max_length=1500)
+     genre=models.CharField(max_length=100)
+     image=models.ImageField()
+
+     def __str__(self):
+         return self.bookname

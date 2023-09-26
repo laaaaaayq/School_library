@@ -62,7 +62,7 @@ https://templatemo.com/tm-546-sixteen-clothing
             <div></div>
             <div></div>
         </div>
-    </div>  
+    </div>
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
@@ -79,9 +79,12 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <a class="nav-link" href="index">Home
                   <span class="sr-only">(current)</span>
                 </a>
-              </li> 
+              </li>
               <li class="nav-item active">
                 <a class="nav-link" href="product">Books</a>
+              </li>
+                <li class="nav-item">
+                <a class="nav-link" href="user">History</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="about">About Us</a>
@@ -94,10 +97,12 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <a class="nav-link" href="changepassword">Change Password</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="login">Logout</a>
+                <a class="nav-link" href="logout">Logout</a>
               </li>
                <li class="nav-item">
-                <a class="nav-link" href="profile"><i class="fa-solid fa-user"></i></a>
+                   {% for i in user %}
+                <a class="nav-link" href="profile"><i class="fa-solid fa-user"></i> {{i.username}}</a>
+                   {% endfor %}
               </li>
             </ul>
           </div>
@@ -161,11 +166,13 @@ https://templatemo.com/tm-546-sixteen-clothing
           <div class="col-md-12">
             <div class="filters-content">
                 <div class="row grid">
+                    {% for i in books %}
                     <div class="col-lg-4 col-md-4 all hor">
                       <div class="product-item">
-                        <a href="product1"><img src="{% static 'images/product_01.jpg' %}" alt=""></a>
+                        <a href="product1/{{i.id}}"><img src="{{i.image.url}}" alt=""></a>
                         <div class="down-content">
-                          <a href="product1"><h4>Salem’s Lot by Stephen King</h4></a>
+                          <a href="product1"><h4>{{i.bookname}} by {{i.author}}</h4></a>
+                            <h4>Genre: {{i.genre}}</h4>
 <!--                          <h6>$18.25</h6>-->
 <!--                <p>If you’re looking for a book you won’t be able to put down, reach for Salem’s Lot, one of the earliest books written by Stephen King. This story of a small town overrun by vampires is deliciously chilling. As residents experience a growing list of strange encounters and start putting the pieces together, you’ll feel yourself tensing up in anticipation of the final reveal and confrontation.</p>-->
 <!--                          <ul class="stars">-->
@@ -180,11 +187,13 @@ https://templatemo.com/tm-546-sixteen-clothing
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 all hor">
-                      <div class="product-item">
-                        <a href="product2"><img src="{% static 'images/product_02.jpg' %}" alt=""></a>
-                        <div class="down-content">
-                          <a href="product2"><h4>Carrion Comfort by Dan Simmons </h4></a>
+                    {% endfor %}
+<!--                    <div class="col-lg-4 col-md-4 all hor">-->
+<!--                      <div class="product-item">-->
+<!--                        <a href="product2"><img src="{% static 'images/product_02.jpg' %}" alt=""></a>-->
+<!--                        <div class="down-content">-->
+<!--                          <a href="product2"><h4>Carrion Comfort by Dan Simmons </h4></a>-->
+<!--                            <h4>Genre: Horror</h4>-->
 <!--                          <h6>$16.75</h6>-->
 <!--                <p>Carrion Comfort is “one of the three greatest horror novels of the 20th century,” according to the master of horror himself, Stephen King. The villains here represent an intriguing twist on a familiar antagonist: They’re “mind vampires” who, instead of feasting on humans, can inhabit victims’ minds and manipulate them into doing the unspeakable.</p>-->
 <!--                          <ul class="stars">-->
@@ -195,14 +204,15 @@ https://templatemo.com/tm-546-sixteen-clothing
 <!--                            <li><i class="fa-regular fa-star"></i></li>-->
 <!--                          </ul>-->
 <!--                          <span>Reviews (24)</span>-->
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 all hor">
-                      <div class="product-item">
-                        <a href="product3"><img src="{% static 'images/product_03.jpg' %}" alt=""></a>
-                        <div class="down-content">
-                          <a href="product3"><h4>The Hunger by Alma Katsu</h4></a>
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-4 col-md-4 all hor">-->
+<!--                      <div class="product-item">-->
+<!--                        <a href="product3"><img src="{% static 'images/product_03.jpg' %}" alt=""></a>-->
+<!--                        <div class="down-content">-->
+<!--                          <a href="product3"><h4>The Hunger by Alma Katsu</h4></a>-->
+<!--                            <h4>Genre: Horror</h4>-->
 <!--                          <h6>$32.50</h6>-->
 <!--                <p>In this reimagining of a real-life, 19th-century mystery, arguments and the strange death of a little boy have driven the Donner Party to madness. They can’t seem to escape tragedy and the feeling that someone (or something) is watching them. As the group of survivors struggles through blood-boiling hot days and stark, snowy nights, their terror grows … and their numbers shrink. What ravenous evil lurks in these mountains.</p>-->
 <!--                          <ul class="stars">-->
@@ -213,14 +223,15 @@ https://templatemo.com/tm-546-sixteen-clothing
 <!--                            <li><i class="fa-regular fa-star"></i></li>-->
 <!--                          </ul>-->
 <!--                          <span>Reviews (36)</span>-->
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 all fic">
-                      <div class="product-item">
-                        <a href="product4"><img src="{% static 'images/product_04.jpg' %}" alt=""></a>
-                        <div class="down-content">
-                          <a href="product4"><h4>Homecoming by Kate Morton</h4></a>
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-4 col-md-4 all fic">-->
+<!--                      <div class="product-item">-->
+<!--                        <a href="product4"><img src="{% static 'images/product_04.jpg' %}" alt=""></a>-->
+<!--                        <div class="down-content">-->
+<!--                          <a href="product4"><h4>Homecoming by Kate Morton</h4></a>-->
+<!--                            <h4>Genre: Fiction</h4>-->
 <!--                          <h6>$24.60</h6>-->
 <!--                <p>Remember The Clockmaker’s Daughter? The Lake House? How about The Secret Keeper? Yes, those. To date, all Kate Morton’s fiction books have been bestsellers. Like The Lake House, Homecoming builds a plot and characters centered around a crime. On Dec. 24, 1959, a brutal crime occurred at the Turners’ house. The mystery was never solved. Almost 60 years later, when journalist Jess Turner-Bridges returns to the house to visit her fragile grandmother, she starts making connections she’d never made before.</p>-->
 <!--                          <ul class="stars">-->
@@ -231,14 +242,15 @@ https://templatemo.com/tm-546-sixteen-clothing
 <!--                            <li><i class="fa-regular fa-star"></i></li>-->
 <!--                          </ul>-->
 <!--                          <span>Reviews (48)</span>-->
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 all fic">
-                      <div class="product-item">
-                        <a href="product5"><img src="{% static 'images/product_05.jpg' %}" alt=""></a>
-                        <div class="down-content">
-                          <a href="product5"><h4>City Under One Roof by Iris Yamashita</h4></a>
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-4 col-md-4 all fic">-->
+<!--                      <div class="product-item">-->
+<!--                        <a href="product5"><img src="{% static 'images/product_05.jpg' %}" alt=""></a>-->
+<!--                        <div class="down-content">-->
+<!--                          <a href="product5"><h4>City Under One Roof by Iris Yamashita</h4></a>-->
+<!--                            <h4>Genre: Fiction</h4>-->
 <!--                          <h6>$18.75</h6>-->
 <!--                <p>This might be Iris Yamashita’s debut novel, but the author is no stranger to tightly woven plots and compelling characters: Yamashita is the Oscar-nominated screenwriter of Clint Eastwood’s Letters from Iwo Jima. In City Under One Roof, she presents a crime story—the first of what will be a two-book mystery series—set in a small, claustrophobic Alaska town. Detective Cara Kennedy has been sent to investigate the origins of severed limbs found washed up on an icy shore.</p>-->
 <!--                          <ul class="stars">-->
@@ -249,14 +261,15 @@ https://templatemo.com/tm-546-sixteen-clothing
 <!--                            <li><i class="fa-regular fa-star"></i></li>-->
 <!--                          </ul>-->
 <!--                          <span>Reviews (60)</span>-->
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 all fic">
-                      <div class="product-item">
-                        <a href="product6"><img src="{% static 'images/product_06.jpg' %}" alt=""></a>
-                        <div class="down-content">
-                          <a href="product6"><h4>The God of Endings by Jacqueline Holland</h4></a>
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-4 col-md-4 all fic">-->
+<!--                      <div class="product-item">-->
+<!--                        <a href="product6"><img src="{% static 'images/product_06.jpg' %}" alt=""></a>-->
+<!--                        <div class="down-content">-->
+<!--                          <a href="product6"><h4>The God of Endings by Jacqueline Holland</h4></a>-->
+<!--                            <h4>Genre: Fiction</h4>-->
 <!--                          <h6>$12.50</h6>-->
 <!--                <p>This atmospheric debut novel from Jacqueline Holland is poised to make a mark on the dark fantasy genre. Collette LeSange is reluctantly immortal. Hundreds of years ago, her life was saved by a grandfather figure who granted her everlasting life—but with a catch. Collette is now a vampire, and keeping the world safe from her growing hunger has made her sad and lonely. Advance readers have compared The God of Endings to the New York Times bestseller The Invisible Life of Addie LaRue by V.E. Schwab.</p>-->
 <!--                          <ul class="stars">-->
@@ -267,14 +280,15 @@ https://templatemo.com/tm-546-sixteen-clothing
 <!--                            <li><i class="fa-regular fa-star"></i></li>-->
 <!--                          </ul>-->
 <!--                          <span>Reviews (72)</span>-->
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 all rom">
-                      <div class="product-item">
-                        <a href="product7"><img src="{% static 'images/product_07.jpg' %}" alt=""></a>
-                        <div class="down-content">
-                          <a href="product7"><h4>The Secret History of the Pink Carnation by Lauren Willig </h4></a>
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-4 col-md-4 all rom">-->
+<!--                      <div class="product-item">-->
+<!--                        <a href="product7"><img src="{% static 'images/product_07.jpg' %}" alt=""></a>-->
+<!--                        <div class="down-content">-->
+<!--                          <a href="product7"><h4>The Secret History of the Pink Carnation by Lauren Willig </h4></a>-->
+<!--                            <h4>Genre: Romance</h4>-->
 <!--                          <h6>$12.50</h6>-->
 <!--                <p>Lauren Willig’s sweeping and detailed romance novel takes place during the Napoleonic Wars but is interspersed with present-day interludes. In the latter, a graduate student, Eloise, makes sense of documents and letters related to the Pink Carnation, a spy who helps the Purple Gentian and continuously foils Napoleon and saves nobles. Eloise also reads the diary of Amy, which is filled with details of intimate romance.</p>-->
 <!--                          <ul class="stars">-->
@@ -285,14 +299,15 @@ https://templatemo.com/tm-546-sixteen-clothing
 <!--                            <li><i class="fa-regular fa-star"></i></li>-->
 <!--                          </ul>-->
 <!--                          <span>Reviews (72)</span>-->
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 all rom">
-                      <div class="product-item">
-                        <a href="product8"><img src="{% static 'images/product_08.jpg' %}" alt=""></a>
-                        <div class="down-content">
-                          <a href="product8"><h4>Red, White & Royal Blue by Casey McQuiston</h4></a>
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-4 col-md-4 all rom">-->
+<!--                      <div class="product-item">-->
+<!--                        <a href="product8"><img src="{% static 'images/product_08.jpg' %}" alt=""></a>-->
+<!--                        <div class="down-content">-->
+<!--                          <a href="product8"><h4>Red, White & Royal Blue by Casey McQuiston</h4></a>-->
+<!--                             <h4>Genre: Romance</h4>-->
 <!--                          <h6>$12.50</h6>-->
 <!--                        <p>Casey McQuiston’s instant bestseller wows readers with its story about the president’s son, who’s caught in a scandal with his nemesis, the Prince of Wales. In a twist on the “fake dating” trope, the two fake a friendship. But this is a romance novel, so soon the two fall for each other. They’re not sure if they’re ready to take their relationship to the world stage, but they may be making history whether they like it or not.</p>-->
 
@@ -304,14 +319,15 @@ https://templatemo.com/tm-546-sixteen-clothing
 <!--                            <li><i class="fa-regular fa-star"></i></li>-->
 <!--                          </ul>-->
 <!--                          <span>Reviews (72)</span>-->
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 all rom">
-                      <div class="product-item">
-                        <a href="product9"><img src="{% static 'images/product_09.jpg' %}" alt=""></a>
-                        <div class="down-content">
-                          <a href="product9"><h4>Love on the Brain by Ali Hazelwood</h4></a>
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-4 col-md-4 all rom">-->
+<!--                      <div class="product-item">-->
+<!--                        <a href="product9"><img src="{% static 'images/product_09.jpg' %}" alt=""></a>-->
+<!--                        <div class="down-content">-->
+<!--                          <a href="product9"><h4>Love on the Brain by Ali Hazelwood</h4></a>-->
+<!--                             <h4>Genre: Romance</h4>-->
 <!--                          <h6>$12.50</h6>-->
 <!--                <p>Bee Königswasser is a purple-haired scientist and self-proclaimed STEMinist who’s just been offered her dream job at NASA. There’s just one problem: Her co-lead on the project is her grad school archnemesis, the unfairly attractive Levi Ward. What would Marie Curie do in this situation? What will Bee do? This hilarious yet brainy story will charm and entice anyone who loves romance novels, especially fans of the classic enemies-to-lovers plot line.</p>-->
 <!--                          <ul class="stars">-->
@@ -322,14 +338,15 @@ https://templatemo.com/tm-546-sixteen-clothing
 <!--                            <li><i class="fa-regular fa-star"></i></li>-->
 <!--                          </ul>-->
 <!--                          <span>Reviews (72)</span>-->
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 all ani">
-                      <div class="product-item">
-                        <a href="product10"><img src="{% static 'images/product_10.png' %}" alt=""></a>
-                        <div class="down-content">
-                          <a href="product10"><h4>The Illusion of Life by Frank Thomas and Ollie Johnston</h4></a>
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-4 col-md-4 all ani">-->
+<!--                      <div class="product-item">-->
+<!--                        <a href="product10"><img src="{% static 'images/product_10.png' %}" alt=""></a>-->
+<!--                        <div class="down-content">-->
+<!--                          <a href="product10"><h4>The Illusion of Life by Frank Thomas and Ollie Johnston</h4></a>-->
+<!--                             <h4>Genre: Animation</h4>-->
 <!--                          <h6>$12.50</h6>-->
 <!--                <p>The book explains the steps it took the original Disney animators to discover and research the best methods of animation. It also covers the history of animation as well as other things everyone should learn about animation.The authors of the book, Frank Thomas and Ollie Johnston, are animation legends. They were two of the nine animators who defined the Disney animation style. You might recognize some of the work in films such as Snow White, The Jungle Book, and Pinocchio.</p>-->
 <!--                          <ul class="stars">-->
@@ -340,14 +357,15 @@ https://templatemo.com/tm-546-sixteen-clothing
 <!--                            <li><i class="fa-regular fa-star"></i></li>-->
 <!--                          </ul>-->
 <!--                          <span>Reviews (72)</span>-->
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 all ani">
-                      <div class="product-item">
-                        <a href="product11"><img src="{% static 'images/product_11.png' %}" alt=""></a>
-                        <div class="down-content">
-                          <a  href="product11"><h4>Cartoon Animation by Preston Blair</h4></a>
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-4 col-md-4 all ani">-->
+<!--                      <div class="product-item">-->
+<!--                        <a href="product11"><img src="{% static 'images/product_11.png' %}" alt=""></a>-->
+<!--                        <div class="down-content">-->
+<!--                          <a  href="product11"><h4>Cartoon Animation by Preston Blair</h4></a>-->
+<!--                            <h4>Genre: Animation</h4>-->
 <!--                          <h6>$12.50</h6>-->
 <!--                <p>The book teaches animators how to create unique cartoon characters with dialogue and movements. It also touches on character development, dialogue, making lines of action, and timing.The writer of the book, Preston Blair, was a well-known animator who worked in big animation studios such as Disney and Hanna Barbera. He worked on famous scenes in Fantasia and the Sorcerer’s Apprentice.</p>-->
 <!--                          <ul class="stars">-->
@@ -358,9 +376,9 @@ https://templatemo.com/tm-546-sixteen-clothing
 <!--                            <li><i class="fa-regular fa-star"></i></li>-->
 <!--                          </ul>-->
 <!--                          <span>Reviews (72)</span>-->
-                        </div>
-                      </div>
-                    </div>
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
                 </div>
             </div>
           </div>
@@ -414,7 +432,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           t.style.color='#fff';
           }
       }
-    </script>>
+    </script>
 
 
   </body>

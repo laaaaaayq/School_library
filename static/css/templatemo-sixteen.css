@@ -96,6 +96,9 @@ a.filled-button:hover {
 .about-heading {
 	background-image: url(../images/about-heading.jpg);
 }
+.about-heading1 {
+	background-image: url(../images/history.jpg);
+	}
 
 .contact-heading {
 	background-image: url(../images/contact-heading.jpg);
