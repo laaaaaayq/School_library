@@ -39,10 +39,6 @@ def login(request):
                 return HttpResponse("password error")
         except Exception:
             return HttpResponse("username error")
-            # data1 = Librarian.objects.get(username=username,type=0)
-            # if data1.password == password:
-            #     request.session['id'] = username
-            #     return redirect(library)
     else:
      return render(request,'login.html')
 
@@ -254,4 +250,23 @@ def search(request):
             search_data=Book.objects.filter(bookname__icontains=search)
         else:
             books=Book.objects.all()
-        return render(request,'librarian_interface',{'search':search_data})
+    return render(request,'librarian_interface.html',{'books': books,'data': search_data})
+
+
+
+def usersearch(request):
+    if 'id' in request.session:
+        username = request.session['id']
+        if request.method == 'GET':
+            data = Register.objects.filter(username=username).all()
+            return render(request, 'products.html', {'user': data})
+    data=Book.objects.all()
+    books=None
+    search_data=None
+    if request.method=="GET":
+        search=request.GET.get('search')
+        if search:
+            search_data=Book.objects.filter(bookname__icontains=search)
+        else:
+            books=Book.objects.all()
+    return render(request,'products.html',{'books': books,'data': search_data})

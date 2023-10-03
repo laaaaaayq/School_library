@@ -42,6 +42,8 @@ urlpatterns = [
     path('logout',views.logout,name='logout'),
     path('deletebook/<int:id>',views.deletebook,name='deletebook'),
     path('editbook/<int:id>',views.editbook, name='editbook'),
+    path('search',views.search, name='search'),
+    path('usersearch',views.usersearch, name='usersearch'),
     # path('editbookview',views.editbookview)
     # path('search',views.lib_search)
 ]

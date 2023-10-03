@@ -144,8 +144,9 @@ https://templatemo.com/tm-546-sixteen-clothing
         </div>
             <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <form class="d-flex" role="search" action="{% url 'usersearch' %}" method="get">
+        {% csrf_token %}
+      <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
   </div>
@@ -166,28 +167,36 @@ https://templatemo.com/tm-546-sixteen-clothing
           <div class="col-md-12">
             <div class="filters-content">
                 <div class="row grid">
-                    {% for i in books %}
-                    <div class="col-lg-4 col-md-4 all hor">
-                      <div class="product-item">
-                        <a href="product1/{{i.id}}"><img src="{{i.image.url}}" alt=""></a>
-                        <div class="down-content">
-                          <a href="product1/{{i.id}}"><h4>{{i.bookname}} by {{i.author}}</h4></a>
+                    {% if data %}
+				      {% for i in data %}
+                            <div class="col-lg-4 col-md-4 all hor">
+                            <div class="product-item">
+                            <a href="product1/{{i.id}}"><img src="{{i.image.url}}" alt=""></a>
+                            <div class="down-content">
+                            <a href="product1/{{i.id}}"><h4>{{i.bookname}} by {{i.author}}</h4></a>
                             <h4>Genre: {{i.genre}}</h4>
-<!--                          <h6>$18.25</h6>-->
-<!--                <p>If you’re looking for a book you won’t be able to put down, reach for Salem’s Lot, one of the earliest books written by Stephen King. This story of a small town overrun by vampires is deliciously chilling. As residents experience a growing list of strange encounters and start putting the pieces together, you’ll feel yourself tensing up in anticipation of the final reveal and confrontation.</p>-->
-<!--                          <ul class="stars">-->
-<!--                            <li><i class="fa-regular fa-star"></i></li>-->
-<!--                            <li><i class="fa-regular fa-star"></i></li>-->
-<!--                            <li><i class="fa-regular fa-star"></i></li>-->
-<!--                            <li><i class="fa-regular fa-star"></i></li>-->
-<!--                            <li><i class="fa-regular fa-star"></i></li>-->
+                            </div>
+                            </div>
+                            </div>
+                      {% endfor %}
+				    {% elif books %}
+                        {% for i in books %}
+                            <div class="col-lg-4 col-md-4 all hor">
+                            <div class="product-item">
+                            <a href="product1/{{i.id}}"><img src="{{i.image.url}}" alt=""></a>
+                            <div class="down-content">
+                            <a href="product1/{{i.id}}"><h4>{{i.bookname}} by {{i.author}}</h4></a>
+                            <h4>Genre: {{i.genre}}</h4>
+                            </div>
+                            </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+          </div>
 
-<!--                          </ul>-->
-<!--                          <span>Reviews (12)</span>-->
-                        </div>
-                      </div>
-                    </div>
-                    {% endfor %}
+
 <!--                    <div class="col-lg-4 col-md-4 all hor">-->
 <!--                      <div class="product-item">-->
 <!--                        <a href="product2"><img src="{% static 'images/product_02.jpg' %}" alt=""></a>-->
@@ -379,9 +388,7 @@ https://templatemo.com/tm-546-sixteen-clothing
 <!--                        </div>-->
 <!--                      </div>-->
 <!--                    </div>-->
-                </div>
-            </div>
-          </div>
+
 <!--          <div class="col-md-12">-->
 <!--            <ul class="pages">-->
 <!--              <li><a href="#">1</a></li>-->
@@ -391,9 +398,9 @@ https://templatemo.com/tm-546-sixteen-clothing
 <!--              <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>-->
 <!--            </ul>-->
 <!--          </div>-->
-        </div>
-      </div>
-    </div>
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
 
     
 <!--    <footer>-->

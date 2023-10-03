@@ -97,7 +97,8 @@
         </div>
 
     <div class="container">
-		 <form action="#" method="get">
+		 <form action="{% url 'search' %}" method="get">
+			 {% csrf_token %}
                 <input type="text"
                        placeholder=" Search Books"
                        name="search">
@@ -138,8 +139,24 @@
                     </tr>
                 </thead>
                 <tbody>
-				{% for i in data %}
+				{% if data %}
+				     {% for i in data %}
+				     <tr>
+						  <td>{{i.bookname}}</td>
+                        <td>{{i.author}}</td>
+                        <td>{{i.description}}</td>
+                        <td>{{i.genre}}</td>
+						<td><img style="width:100px; height:100px;" src="{{i.image.url}}" alt=""></td>
+                        <td>
+                            <a href="editbook/{{ i.id }}" class="edit" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <a href="deletebook/{{i.id}}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        </td>
+                    </tr>
+					{% endfor %}
+				{% elif books %}
+				   {% for i in books %}
                     <tr>
+
 <!--						<td>-->
 <!--							<span class="custom-checkbox">-->
 <!--								<input type="checkbox" id="checkbox1" name="options[]" value="1">-->
@@ -156,7 +173,8 @@
                             <a href="deletebook/{{i.id}}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                         </td>
                     </tr>
-				{% endfor %}
+					{% endfor %}
+				{% endif %}
 <!--                    <tr>-->
 <!--						<td>-->
 <!--							<span class="custom-checkbox">-->
