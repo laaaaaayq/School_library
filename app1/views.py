@@ -6,6 +6,10 @@ from.models import Register,Login,Book
 def display(request):
     return render(request,'register.html')
 
+
+def backtoregister(request):
+    return redirect(display)
+
 def display1(request):
     if request.method=="POST":
         name=request.POST['Name']
@@ -15,7 +19,7 @@ def display1(request):
         password=request.POST['Password']
         data=Register.objects.create(name=name,email=email,phone=phone,username=username)
         data.save()
-        data1=Login.objects.create(username=username,password=password)
+        data1=Login.objects.create(username=username,password=password,type=1)
         data1.save()
         return render(request,"login.html")
 
@@ -27,11 +31,18 @@ def login(request):
             data1=Login.objects.get(username=username)
             if data1.password ==password:
                 request.session['id']=username
-                return redirect(index)
+                if data1.type==1:
+                    return redirect(index)
+                else:
+                    return redirect(library)
             else:
                 return HttpResponse("password error")
         except Exception:
             return HttpResponse("username error")
+            # data1 = Librarian.objects.get(username=username,type=0)
+            # if data1.password == password:
+            #     request.session['id'] = username
+            #     return redirect(library)
     else:
      return render(request,'login.html')
 
@@ -55,7 +66,12 @@ def index(request):
         username=request.session['id']
         if request.method =='GET':
             data=Register.objects.filter(username=username).all()
-            return render(request,'index.html',{'data':data})
+            data1 = Book.objects.all()
+            context = {
+                'user': data,
+                'books': data1
+            }
+            return render(request, 'index.html', context)
     # data1 = Book.objects.all()
     # return render(request, 'index.html', {'data2': data1})
 
@@ -110,8 +126,16 @@ def changepassword(request):
     # return render(request,'change_password.html')
 
 def product1(request,id):
-    data=Book.objects.get(id=id)
-    return render(request,'product1.html',{'data':data})
+    if 'id' in request.session:
+        username=request.session['id']
+        if request.method =='GET':
+            data=Register.objects.filter(username=username).all()
+            data1=Book.objects.get(id=id)
+            context = {
+                'user': data,
+                'books': data1
+            }
+            return render(request,'product1.html',context)
 
 
 def library(request):
@@ -191,8 +215,6 @@ def deletebook(request,id):
     data.delete()
     return redirect(library)
 
-# def editbookview(request):
-#     return render(request,'editbook.html')
 
 def editbook(request,id):
     data=Book.objects.get(id=id)
@@ -202,7 +224,7 @@ def editbook(request,id):
         author=request.POST['newauthor']
         description=request.POST['newdescription']
         genre=request.POST['newgenre']
-        # image=request.FILES['newimage']
+        image=request.FILES['newimage']
         try:
             data=Book.objects.get(id=id)
             if data.id==id:
@@ -210,7 +232,7 @@ def editbook(request,id):
                 data.author=author
                 data.description=description
                 data.genre=genre
-                # data.image=image
+                data.image=image
                 data.save()
                 return redirect(library)
             else:
@@ -222,8 +244,14 @@ def editbook(request,id):
 
 
 
-# def lib_search(request):
-#     if request.method=="POST":
-#         book=request.POST['search']
-#         data=Book.objects.filter(bookname=book).all()
-#         return render(request,'librarian_interface.html',{'book':data})
+def search(request):
+    data=Book.objects.all()
+    books=None
+    search_data=None
+    if request.method=="GET":
+        search=request.GET.get('search')
+        if search:
+            search_data=Book.objects.filter(bookname__icontains=search)
+        else:
+            books=Book.objects.all()
+        return render(request,'librarian_interface',{'search':search_data})

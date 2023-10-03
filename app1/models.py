@@ -6,7 +6,9 @@ class Register(models.Model):
     phone=models.IntegerField()
     email=models.EmailField()
     username=models.CharField(max_length=50)
-    # type=models.IntegerField()
+
+
+
 
     def __str__(self):
         return self.name
@@ -14,6 +16,8 @@ class Register(models.Model):
 class Login(models.Model):
     username=models.CharField(max_length=50)
     password=models.CharField(max_length=50)
+    type=models.IntegerField(null=True)
+
 
     def __str__(self):
         return self.username
@@ -27,3 +31,4 @@ class Book(models.Model):
 
      def __str__(self):
          return self.bookname
+

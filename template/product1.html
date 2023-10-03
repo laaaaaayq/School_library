@@ -53,7 +53,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" href="index">Home
+                <a class="nav-link" href="{% url 'index' %}">Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
@@ -61,22 +61,24 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <a class="nav-link" href="product">Books</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="user">History</a>
+                <a class="nav-link" href="{% url 'user' %}">History</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about">About Us</a>
+                <a class="nav-link" href="{% url 'about' %}">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact">Contact Us</a>
+                <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="changepassword">Change Password</a>
+                <a class="nav-link" href="{% url 'changepassword' %}">Change Password</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="login">Logout</a>
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
               </li>
                <li class="nav-item">
-                <a class="nav-link" href="profile"><i class="fa-solid fa-user"></i></a>
+                 {% for i in user %}
+                <a class="nav-link" href="{% url 'profile' %}"><i class="fa-solid fa-user"></i> {{i.username}}</a>
+                 {% endfor %}
               </li>
             </ul>
           </div>
@@ -95,10 +97,10 @@ https://templatemo.com/tm-546-sixteen-clothing
       </div>
     </div>
       <div style="text-align: center;">
-         <img src="{{data.image.url}}" alt="">
+         <img src="{{books.image.url}}" alt="">
         <div class="down-content">
-          <h4>{{data.bookname}} by {{data.author}}</h4>
-          <p>{{data.description}}</p>
+          <h4>{{books.bookname}} by {{books.author}}</h4>
+          <p>{{books.description}}</p>
           <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Get Book</button>
         </div>
       </div>
@@ -122,7 +124,6 @@ https://templatemo.com/tm-546-sixteen-clothing
 
     </div>
   </div>
-
 
 
       
