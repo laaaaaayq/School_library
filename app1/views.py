@@ -201,6 +201,10 @@ def addbook(request):
 def success(request):
     return render(request,'addbooksuccess.html')
 
+def message(request):
+    if request.method == "POST":
+        return render(request,'contact.html',{'msg':"message send succesfully!"})
+
 def logout(request):
     if 'id' in request.session:
         request.session.flush()
@@ -260,13 +264,15 @@ def usersearch(request):
         if request.method == 'GET':
             data = Register.objects.filter(username=username).all()
             return render(request, 'products.html', {'user': data})
-    data=Book.objects.all()
-    books=None
-    search_data=None
-    if request.method=="GET":
-        search=request.GET.get('search')
-        if search:
-            search_data=Book.objects.filter(bookname__icontains=search)
-        else:
-            books=Book.objects.all()
-    return render(request,'products.html',{'books': books,'data': search_data})
+        data=Book.objects.all()
+        books=None
+        search_data=None
+        if request.method=="GET":
+            search=request.GET.get('search')
+            print(search)
+            if search:
+                search_data=Book.objects.filter(bookname__icontains=search)
+                print(search_data)
+            else:
+                books=Book.objects.all()
+        return render(request,'products.html',{'books': books,'data': search_data})

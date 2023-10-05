@@ -164,37 +164,37 @@ https://templatemo.com/tm-546-sixteen-clothing
 <!--              </ul>-->
 <!--            </div>-->
 <!--          </div>-->
-          <div class="col-md-12">
-            <div class="filters-content">
-                <div class="row grid">
-                    {% if data %}
-				      {% for i in data %}
-                            <div class="col-lg-4 col-md-4 all hor">
-                            <div class="product-item">
-                            <a href="product1/{{i.id}}"><img src="{{i.image.url}}" alt=""></a>
-                            <div class="down-content">
-                            <a href="product1/{{i.id}}"><h4>{{i.bookname}} by {{i.author}}</h4></a>
-                            <h4>Genre: {{i.genre}}</h4>
-                            </div>
-                            </div>
-                            </div>
-                      {% endfor %}
-				    {% elif books %}
-                        {% for i in books %}
-                            <div class="col-lg-4 col-md-4 all hor">
-                            <div class="product-item">
-                            <a href="product1/{{i.id}}"><img src="{{i.image.url}}" alt=""></a>
-                            <div class="down-content">
-                            <a href="product1/{{i.id}}"><h4>{{i.bookname}} by {{i.author}}</h4></a>
-                            <h4>Genre: {{i.genre}}</h4>
-                            </div>
-                            </div>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
+<div class="col-md-12">
+<div class="filters-content">
+    <div class="row grid">
+        {% if data %}
+          {% for i in data %}
+                <div class="col-lg-4 col-md-4 all hor">
+                <div class="product-item">
+<!--                <a href="product1/{{i.id}}"><img src="{{i.image.url}}" alt=""></a>-->
+                <div class="down-content">
+                <a href="product1/{{i.id}}"><h4>{{i.bookname}} by {{i.author}}</h4></a>
+                <h4>Genre: {{i.genre}}</h4>
                 </div>
-            </div>
-          </div>
+                </div>
+                </div>
+          {% endfor %}
+        {% elif books %}
+            {% for i in books %}
+                <div class="col-lg-4 col-md-4 all hor">
+                <div class="product-item">
+                <a href="product1/{{i.id}}"><img src="{{i.image.url}}" alt=""></a>
+                <div class="down-content">
+                <a href="product1/{{i.id}}"><h4>{{i.bookname}} by {{i.author}}</h4></a>
+                <h4>Genre: {{i.genre}}</h4>
+                </div>
+                </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+</div>
 
 
 <!--                    <div class="col-lg-4 col-md-4 all hor">-->

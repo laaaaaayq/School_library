@@ -30,6 +30,7 @@ urlpatterns = [
     path('index',views.index,name='index'),
     path('about',views.about,name='about'),
     path('contact',views.contact,name='contact'),
+    path('messagesend',views.message,name='messagesend'),
     path('changepassword',views.changepassword,name='changepassword'),
     path('password',views.password,name='password'),
     path('product1/<int:id>',views.product1),
