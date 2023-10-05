@@ -123,7 +123,7 @@ https://templatemo.com/tm-546-sixteen-clothing
               <a href="product">view all books<i class="fa fa-angle-right"></i></a>
             </div>
           </div>
-          {% for i in books %}
+          {% for i in books|slice:":2" %}
           <div class="col-md-4">
             <div class="product-item">
               <a href="product1/{{i.id}}"><img src="{{i.image.url}}" alt=""></a>
