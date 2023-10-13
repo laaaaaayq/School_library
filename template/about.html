@@ -13,13 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-<!--
 
-TemplateMo 546 Sixteen Clothing
-
-https://templatemo.com/tm-546-sixteen-clothing
-
--->
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
@@ -75,9 +69,9 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <a class="nav-link" href="logout">Logout</a>
               </li>
                  <li class="nav-item">
-                   {% for i in data %}
-                <a class="nav-link" href="profile"><i class="fa-solid fa-user"></i>   {{i.username}}</a>
-                   {% endfor %}
+
+                <a class="nav-link" href="profile"><i class="fa-solid fa-user"></i>   {{data.username}}</a>
+
               </li>
             </ul>
           </div>
@@ -130,232 +124,6 @@ https://templatemo.com/tm-546-sixteen-clothing
     </div>
 
 
-<!--    <div class="team-members">-->
-<!--      <div class="container">-->
-<!--        <div class="row">-->
-<!--          <div class="col-md-12">-->
-<!--            <div class="section-heading">-->
-<!--              <h2>Our Team Members</h2>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="col-md-4">-->
-<!--            <div class="team-member">-->
-<!--              <div class="thumb-container">-->
-<!--                <img src="{% static 'images/team_01.jpg' %}" alt="">-->
-<!--                <div class="hover-effect">-->
-<!--                  <div class="hover-content">-->
-<!--                    <ul class="social-icons">-->
-<!--                      <li><a href="#"><i class="fa-brands fa-facebook" style="color: #155ad1;"></i></a></li>-->
-<!--                      <li><a href="#"><i class="fa-brands fa-x-twitter" style="color: #3d7be6;"></i></a></li>-->
-<!--                      <li><a href="#"><i class="fa-brands fa-linkedin" style="color: #0d63f8;"></i></a></li>-->
-
-<!--                    </ul>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="down-content">-->
-<!--                <h4>Johnny William</h4>-->
-<!--                <span>CO-Founder</span>-->
-<!--                <p>Lorem ipsum dolor sit amet, consectetur adipisicing itaque corporis nulla.</p>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="col-md-4">-->
-<!--            <div class="team-member">-->
-<!--              <div class="thumb-container">-->
-<!--                <img src="{% static 'images/team_02.jpg' %}" alt="">-->
-<!--                <div class="hover-effect">-->
-<!--                  <div class="hover-content">-->
-<!--                    <ul class="social-icons">-->
-<!--                      <li><a href="#"><i class="fa-brands fa-facebook" style="color: #155ad1;"></i></a></li>-->
-<!--                      <li><a href="#"><i class="fa-brands fa-x-twitter" style="color: #3d7be6;"></i></a></li>-->
-<!--                      <li><a href="#"><i class="fa-brands fa-linkedin" style="color: #0d63f8;"></i></a></li>-->
-
-<!--                    </ul>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="down-content">-->
-<!--                <h4>Karry Pitcher</h4>-->
-<!--                <span>Product Expert</span>-->
-<!--                <p>Lorem ipsum dolor sit amet, consectetur adipisicing itaque corporis nulla.</p>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="col-md-4">-->
-<!--            <div class="team-member">-->
-<!--              <div class="thumb-container">-->
-<!--                <img src="{% static 'images/team_03.jpg' %}" alt="">-->
-<!--                <div class="hover-effect">-->
-<!--                  <div class="hover-content">-->
-<!--                    <ul class="social-icons">-->
-<!--                      <li><a href="#"><i class="fa-brands fa-facebook" style="color: #155ad1;"></i></a></li>-->
-<!--                      <li><a href="#"><i class="fa-brands fa-x-twitter" style="color: #3d7be6;"></i></a></li>-->
-<!--                      <li><a href="#"><i class="fa-brands fa-linkedin" style="color: #0d63f8;"></i></a></li>-->
-
-<!--                    </ul>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="down-content">-->
-<!--                <h4>Michael Soft</h4>-->
-<!--                <span>Chief Marketing</span>-->
-<!--                <p>Lorem ipsum dolor sit amet, consectetur adipisicing itaque corporis nulla.</p>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="col-md-4">-->
-<!--            <div class="team-member">-->
-<!--              <div class="thumb-container">-->
-<!--                <img src="{% static 'images/team_04.jpg' %}" alt="">-->
-<!--                <div class="hover-effect">-->
-<!--                  <div class="hover-content">-->
-<!--                    <ul class="social-icons">-->
-<!--                      <li><a href="#"><i class="fa-brands fa-facebook" style="color: #155ad1;"></i></i></a></li>-->
-<!--                      <li><a href="#"><i class="fa-brands fa-x-twitter" style="color: #3d7be6;"></i></a></li>-->
-<!--                      <li><a href="#"><i class="fa-brands fa-linkedin" style="color: #0d63f8;"></i></a></li>-->
-
-<!--                    </ul>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="down-content">-->
-<!--                <h4>Mary Cool</h4>-->
-<!--                <span>Product Specialist</span>-->
-<!--                <p>Lorem ipsum dolor sit amet, consectetur adipisicing itaque corporis nulla.</p>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="col-md-4">-->
-<!--            <div class="team-member">-->
-<!--              <div class="thumb-container">-->
-<!--                <img src="{% static 'images/team_05.jpg' %}" alt="">-->
-<!--                <div class="hover-effect">-->
-<!--                  <div class="hover-content">-->
-<!--                    <ul class="social-icons">-->
-<!--                      <li><a href="#"><i class="fa-brands fa-facebook" style="color: #155ad1;"></i></a></li>-->
-<!--                      <li><a href="#"><i class="fa-brands fa-x-twitter" style="color: #3d7be6;"></i></a></li>-->
-<!--                      <li><a href="#"><i class="fa-brands fa-linkedin" style="color: #0d63f8;"></i></a></li>-->
-
-<!--                    </ul>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="down-content">-->
-<!--                <h4>George Walker</h4>-->
-<!--                <span>Product Photographer</span>-->
-<!--                <p>Lorem ipsum dolor sit amet, consectetur adipisicing itaque corporis nulla.</p>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="col-md-4">-->
-<!--            <div class="team-member">-->
-<!--              <div class="thumb-container">-->
-<!--                <img src="{% static 'images/team_06.jpg' %}" alt="">-->
-<!--                <div class="hover-effect">-->
-<!--                  <div class="hover-content">-->
-<!--                    <ul class="social-icons">-->
-<!--                      <li><a href="#"><i class="fa-brands fa-facebook" style="color: #155ad1;"></i></i></a></li>-->
-<!--                      <li><a href="#"><i class="fa-brands fa-x-twitter" style="color: #3d7be6;"></i></a></li>-->
-<!--                      <li><a href="#"><i class="fa-brands fa-linkedin" style="color: #0d63f8;"></i></a></li>-->
-<!--                    </ul>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="down-content">-->
-<!--                <h4>Kate Town</h4>-->
-<!--                <span>General Manager</span>-->
-<!--                <p>Lorem ipsum dolor sit amet, consectetur adipisicing itaque corporis nulla.</p>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
-
-<!--    <div class="services">-->
-<!--      <div class="container">-->
-<!--        <div class="row">-->
-<!--          <div class="col-md-4">-->
-<!--            <div class="service-item">-->
-<!--              <div class="icon">-->
-<!--                <i class="fa fa-gear"></i>-->
-<!--              </div>-->
-<!--              <div class="down-content">-->
-<!--                <h4>Product Management</h4>-->
-<!--                <p>Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat.</p>-->
-<!--                <a href="#" class="filled-button">Read More</a>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="col-md-4">-->
-<!--            <div class="service-item">-->
-<!--              <div class="icon">-->
-<!--                <i class="fa fa-gear"></i>-->
-<!--              </div>-->
-<!--              <div class="down-content">-->
-<!--                <h4>Customer Relations</h4>-->
-<!--                <p>Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat.</p>-->
-<!--                <a href="#" class="filled-button">Details</a>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="col-md-4">-->
-<!--            <div class="service-item">-->
-<!--              <div class="icon">-->
-<!--                <i class="fa fa-gear"></i>-->
-<!--              </div>-->
-<!--              <div class="down-content">-->
-<!--                <h4>Global Collection</h4>-->
-<!--                <p>Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat.</p>-->
-<!--                <a href="#" class="filled-button">Read More</a>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
-
-<!--    <div class="happy-clients">-->
-<!--      <div class="container">-->
-<!--        <div class="row">-->
-<!--          <div class="col-md-12">-->
-<!--            <div class="section-heading">-->
-<!--              <h2>Happy Partners</h2>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="col-md-12">-->
-<!--            <div class="owl-clients owl-carousel">-->
-<!--              <div class="client-item">-->
-<!--                <img src="{% static 'images/client-01.png' %}" alt="1">-->
-<!--              </div>-->
-<!--              -->
-<!--              <div class="client-item">-->
-<!--                <img src="{% static 'images/client-01.png' %}" alt="2">-->
-<!--              </div>-->
-<!--              -->
-<!--              <div class="client-item">-->
-<!--                <img src="{% static 'images/client-01.png' %}" alt="3">-->
-<!--              </div>-->
-<!--              -->
-<!--              <div class="client-item">-->
-<!--                <img src="{% static 'images/client-01.png' %}" alt="4">-->
-<!--              </div>-->
-<!--              -->
-<!--              <div class="client-item">-->
-<!--                <img src="{% static 'images/client-01.png' %}" alt="5">-->
-<!--              </div>-->
-<!--              -->
-<!--              <div class="client-item">-->
-<!--                <img src="{% static 'images/client-01.png' %}" alt="6">-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
 
     
     <footer>
@@ -365,7 +133,6 @@ https://templatemo.com/tm-546-sixteen-clothing
             <div class="inner-content">
               <p>Copyright &copy; 2023 E Library </p>
 
-<!--            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>-->
             </div>
           </div>
         </div>

@@ -97,9 +97,9 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <a class="nav-link" href="logout">Logout</a>
               </li>
                  <li class="nav-item">
-                     {% for i in data %}
-                <a class="nav-link" href="profile"><i class="fa-solid fa-user"></i> {{i.username}}</a>
-                   {% endfor %}
+
+                <a class="nav-link" href="profile"><i class="fa-solid fa-user"></i> {{data.username}}</a>
+
               </li>
 
             </ul>
@@ -131,12 +131,20 @@ https://templatemo.com/tm-546-sixteen-clothing
     </tr>
   </thead>
   <tbody>
+  {% for i in data1 %}
     <tr>
-      <td>Salems's Lot</td>
-      <td><button type="button" class="btn btn-success">Return</button></td>
+      <td>{{i.bookname}}</td>
+      <td>
+          <form action="return/{{i.id}}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success">Return</button>
+          </form>
+          </td>
     </tr>
+  {% endfor %}
   </tbody>
 </table>
+          <h3>{{note}}</h3>
       </div>
    </div>
 

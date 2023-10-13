@@ -26,7 +26,7 @@ urlpatterns = [
     path('backtoregister',views.backtoregister,name='backtoregister'),
     path('register',views.display1),
     path('login',views.login,name='login'),
-    path('product',views.product),
+    path('product',views.product,name='product'),
     path('index',views.index,name='index'),
     path('about',views.about,name='about'),
     path('contact',views.contact,name='contact'),
@@ -36,15 +36,18 @@ urlpatterns = [
     path('product1/<int:id>',views.product1),
     path('library',views.library, name='library'),
     path('profile',views.profile,name='profile'),
-    path('history',views.history),
+    path('history',views.history,name='history'),
     path('user',views.user_history,name='user'),
     path('addbook',views.addbook),
     path('success',views.success),
     path('logout',views.logout,name='logout'),
     path('deletebook/<int:id>',views.deletebook,name='deletebook'),
+    path('return/<int:id>',views.returnbook,name='return'),
     path('editbook/<int:id>',views.editbook, name='editbook'),
     path('search',views.search, name='search'),
-    path('usersearch',views.usersearch, name='usersearch'),
+    path('getbook',views.getbook, name='getbook'),
+    path('nobook',views.nobook, name='nobook')
+    # path('usersearch',views.usersearch, name='usersearch'),
     # path('editbookview',views.editbookview)
     # path('search',views.lib_search)
 ]

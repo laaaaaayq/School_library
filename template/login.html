@@ -1,9 +1,4 @@
-<!--
-	Author: W3layouts
-	Author URL: http://w3layouts.com
-	License: Creative Commons Attribution 3.0 Unported
-	License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 
 
 
@@ -35,42 +30,10 @@
 <!-- Body -->
 <body>
 
-	<h1>LIBRARY LOGIN FORM</h1>
+	<h1>E LIBRARY LOGIN FORM</h1>
 
 	<div class="container w3layouts agileits">
 
-<!--		<div class="login w3layouts agileits">-->
-<!--			<h2>LOGIN</h2>-->
-<!--			<form action="#" method="post">-->
-<!--				{% csrf_token %}-->
-<!--				<input type="text" Name="Userame" placeholder="Username" required="">-->
-<!--				<input type="password" Name="Password" placeholder="Password" required="">-->
-<!--			</form>-->
-<!--			<ul class="tick w3layouts agileits">-->
-<!--				<li>-->
-<!--					<input type="checkbox" id="brand1" value="">-->
-<!--					<label for="brand1"><span></span>Remember me</label>-->
-<!--				</li>-->
-<!--			</ul>-->
-<!--			<div class="send-button w3layouts agileits">-->
-<!--				<form>-->
-<!--					<input type="submit" value="Login">-->
-<!--				</form>-->
-<!--			</div>-->
-<!--&lt;!&ndash;			<a href="#">Forgot Password?</a>&ndash;&gt;-->
-<!--			<div class="social-icons w3layouts agileits">-->
-<!--				<p>- Or Sign In With -</p>-->
-<!--				<ul>-->
-<!--					<li><a href="#"><span class="icons w3layouts agileits"></span><span class="text w3layouts agileits">Facebook</span></a></li>-->
-<!--					<li class="twt w3ls"><a href="#"><span class="icons w3layouts"></span><span class="text w3layouts agileits">Twitter</span></a></li>-->
-<!--					<li class="ggp aits"><a href="#"><span class="icons agileits"></span><span class="text w3layouts agileits">Google+</span></a></li>-->
-<!--					<div class="clear"> </div>-->
-<!--				</ul>-->
-<!--			</div>-->
-<!--			<div class="clear"></div>-->
-<!--		</div>-->
-
-<!--		<div class="register w3layouts agileits">-->
 			<h2>LOGIN</h2>
 			<form action="login" method="post">
 				{% csrf_token %}
@@ -80,11 +43,12 @@
 					<input type="submit" value="Login">
 				</div>
 				<p><a style="color:white" href="backtoregister" class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover">Back to register</a></p>
+				<h3 style="color:red">{{msg}}</h3>
+				<h3 style="color:red">{{msg1}}</h3>
 
 
 			</form>
 
-<!--			<p>By creating an account, you agree to our <a class="underline w3layouts agileits" href="#">Terms</a></p>-->
 			<div class="clear"></div>
 		</div>
 
@@ -93,7 +57,6 @@
 	</div>
 
 	<div class="footer w3layouts agileits">
-<!--		<p> &copy; 2016 Library Member Login Form. All Rights Reserved | Design by <a href="http://w3layouts.com" target="_blank">W3layouts</a></p>-->
 	</div>
 
 </body>

@@ -279,7 +279,6 @@ header .navbar {
 	margin: 0px 15px;
 }
 .navbar .navbar-nav a.nav-link {
-	text-transform: capitalize;
 	font-size: 15px;
 	font-weight: 500;
 	letter-spacing: 0.5px;
