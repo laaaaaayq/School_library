@@ -1,7 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from.models import Register,Book,Issue
-from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def display(request):
@@ -47,7 +46,7 @@ def login(request):
     else:
      return render(request,'login.html')
 
-@login_required(login_url='login')
+
 def product(request):
     if 'id' in request.session:
         username=request.session['id']
@@ -59,10 +58,11 @@ def product(request):
                 'books':data1
             }
             return render(request,'products.html',context)
+    else:
+        return redirect(login)
 
 
 
-@login_required(login_url='login')
 def index(request):
     if 'id' in request.session:
         username=request.session['id']
@@ -74,25 +74,27 @@ def index(request):
                 'books': data1
             }
             return render(request, 'index.html', context)
+    else:
+        return redirect(login)
 
-
-@login_required(login_url='login')
 def about(request):
     if 'id' in request.session:
         username=request.session['id']
         if request.method =='GET':
             data=Register.objects.get(id=username)
             return render(request,'about.html',{'data':data})
+    else:
+        return redirect(login)
 
-@login_required(login_url='login')
 def contact(request):
     if 'id' in request.session:
         username=request.session['id']
         if request.method =='GET':
             data=Register.objects.get(id=username)
             return render(request,'contact.html',{'data':data})
+    else:
+        return redirect(login)
 
-@login_required(login_url='login')
 def password(request):
     if 'id' in request.session:
         user=request.session['id']
@@ -126,18 +128,18 @@ def password(request):
                 }
                 return render(request, 'change_password.html',context)
     else:
-        return redirect(changepassword)
+        return redirect(login)
 
 
-@login_required(login_url='login')
 def changepassword(request):
     if 'id' in request.session:
         username = request.session['id']
         if request.method == 'GET':
             data = Register.objects.get(id=username)
             return render(request, 'change_password.html', {'data': data})
+    else:
+        return redirect(login)
 
-@login_required(login_url='login')
 def product1(request,id):
     if 'id' in request.session:
         username=request.session['id']
@@ -149,14 +151,17 @@ def product1(request,id):
                 'books': data1
             }
             return render(request,'product1.html',context)
+    else:
+        return redirect(login)
 
 
-@login_required(login_url='login')
 def library(request):
-    data=Book.objects.all()
-    return render(request,'librarian_interface.html',{'data':data})
+    if 'id' in request.session:
+        data=Book.objects.all()
+        return render(request,'librarian_interface.html',{'data':data})
+    else:
+        return redirect(login)
 
-@login_required(login_url='login')
 def profile(request):
     if 'id' in request.session:
         user=request.session['id']
@@ -186,15 +191,17 @@ def profile(request):
                 }
                 return render(request, 'profile.html', context)
     else:
-        return render(request,'profile.html')
+        return redirect(login)
 
 
-@login_required(login_url='login')
 def history(request):
-    data=Issue.objects.all()
-    return render(request,'history.html',{'data':data})
+    if 'id' in request.session:
+        data=Issue.objects.all()
+        return render(request,'history.html',{'data':data})
+    else:
+        return redirect(login)
 
-@login_required(login_url='login')
+
 def user_history(request):
     if 'id' in request.session:
         username=request.session['id']
@@ -202,83 +209,90 @@ def user_history(request):
             data=Register.objects.get(id=username)
             data1 = Issue.objects.filter(username=username).all()
             return render(request,'user_history.html',{'data':data,'data1':data1})
+    else:
+        return redirect(login)
 
-@login_required(login_url='login')
 def addbook(request):
-    if request.method == "POST":
-        bookname=request.POST['book']
-        author=request.POST['author']
-        description=request.POST['description']
-        genre=request.POST['genre']
-        image=request.FILES['image']
-        data=Book.objects.create(bookname=bookname,author=author,description=description,genre=genre,image=image)
-        data.save()
-        return render(request,'addbooksuccess.html')
+    if 'id' in request.session:
+        if request.method == "POST":
+            bookname=request.POST['book']
+            author=request.POST['author']
+            description=request.POST['description']
+            genre=request.POST['genre']
+            image=request.FILES['image']
+            data=Book.objects.create(bookname=bookname,author=author,description=description,genre=genre,image=image)
+            data.save()
+            return render(request,'addbooksuccess.html')
+    else:
+        return redirect(login)
 
-@login_required(login_url='login')
 def success(request):
-    return render(request,'addbooksuccess.html')
+    if 'id' in request.session:
+        return render(request,'addbooksuccess.html')
+    else:
+        return redirect(login)
 
 
-@login_required(login_url='login')
-def message(request):
-    if request.method == "POST":
-        return render(request,'contact.html',{'msg':"message send succesfully!"})
 
-
-@login_required(login_url='login')
 def logout(request):
     if 'id' in request.session:
         request.session.flush()
         return redirect(login)
-
-@login_required(login_url='login')
-def deletebook(request,id):
-    data=Book.objects.get(id=id)
-    data.delete()
-    return redirect(library)
-
-@login_required(login_url='login')
-def editbook(request,id):
-    data=Book.objects.get(id=id)
-    if request.method=="POST":
-        newbook=request.POST['newbook']
-        author=request.POST['newauthor']
-        description=request.POST['newdescription']
-        genre=request.POST['newgenre']
-        image=request.FILES['newimage']
-        try:
-            data=Book.objects.get(id=id)
-            if data.id==id:
-                data.bookname=newbook
-                data.author=author
-                data.description=description
-                data.genre=genre
-                data.image=image
-                data.save()
-                return redirect(library)
-            else:
-                return HttpResponse("Book not found")
-        except Exception:
-            return HttpResponse("Check the book name")
     else:
-        return render(request,'editbook.html',{'data':data})
+        return redirect(login)
 
+def deletebook(request,id):
+    if 'id' in request.session:
+        data=Book.objects.get(id=id)
+        data.delete()
+        return redirect(library)
+    else:
+        return redirect(login)
 
-@login_required(login_url='login')
-def search(request):
-    data=Book.objects.all()
-    books=None
-    search_data=None
-    if request.method=="GET":
-        search=request.GET.get('search')
-        if search:
-            search_data=Book.objects.filter(bookname__icontains=search)
+def editbook(request,id):
+    if 'id' in request.session:
+        data=Book.objects.get(id=id)
+        if request.method=="POST":
+            newbook=request.POST['newbook']
+            author=request.POST['newauthor']
+            description=request.POST['newdescription']
+            genre=request.POST['newgenre']
+            image=request.FILES['newimage']
+            try:
+                data=Book.objects.get(id=id)
+                if data.id==id:
+                    data.bookname=newbook
+                    data.author=author
+                    data.description=description
+                    data.genre=genre
+                    data.image=image
+                    data.save()
+                    return redirect(library)
+                else:
+                    return HttpResponse("Book not found")
+            except Exception:
+                return HttpResponse("Check the book name")
         else:
-            books=Book.objects.all()
-    return render(request,'librarian_interface.html',{'books': books,'data': search_data})
+            return render(request,'editbook.html',{'data':data})
+    else:
+        return redirect(login)
 
-@login_required(login_url='login')
+
+def search(request):
+    if 'id' in request.session:
+        books=None
+        search_data=None
+        if request.method=="GET":
+            search=request.GET.get('search')
+            if search:
+                search_data=Book.objects.filter(bookname__icontains=search)
+            else:
+                books=Book.objects.all()
+        return render(request,'librarian_interface.html',{'books': books,'data': search_data})
+    else:
+        return redirect(login)
+
+
 def getbook(request):
         if 'id' in request.session:
             userid = request.session['id']
@@ -293,16 +307,20 @@ def getbook(request):
                     data.save()
                     return render(request,'issuebooksuccess.html')
         else:
-            return redirect(user_history)
+            return redirect(login)
 
-@login_required(login_url='login')
 def returnbook(request,id):
-    data1 = Issue.objects.get(id=id)
-    data1.delete()
-    return redirect(user_history)
+    if 'id' in request.session:
+        data1 = Issue.objects.get(id=id)
+        data1.delete()
+        return redirect(user_history)
+    else:
+        return redirect(login)
 
-@login_required(login_url='login')
 def nobook(request):
-    return render(request,'nobook.html')
+    if 'id' in request.session:
+        return render(request,'nobook.html')
+    else:
+        return redirect(login)
 
 
