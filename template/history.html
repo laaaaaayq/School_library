@@ -93,15 +93,17 @@ td:hover {background-color: #cccccc;}
   <caption align=""></caption>
   <thead>
     <tr>
-      <th scope="col">Book</th>
       <th scope="col">User</th>
+      <th scope="col">Book</th>
+      <th scope="col">Date</th>
     </tr>
   </thead>
   <tbody>
   {% for i in data %}
     <tr>
-      <td><b>{{i.bookname}}</b></td>
       <td><b>{{i.username}}</b></td>
+      <td><b>{{i.bookname}}</b></td>
+      <td><b>{{i.issuedate}}</b></td>
     </tr>
   {% endfor %}
   </tbody>

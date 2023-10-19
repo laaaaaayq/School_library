@@ -46,9 +46,7 @@ urlpatterns = [
     path('search',views.search, name='search'),
     path('getbook',views.getbook, name='getbook'),
     path('nobook',views.nobook, name='nobook')
-    # path('usersearch',views.usersearch, name='usersearch'),
-    # path('editbookview',views.editbookview)
-    # path('search',views.lib_search)
+
 ]
 
 
